@@ -24,13 +24,12 @@ protocol InputBarState {
     var showKeyboard: Bool { get }
     
     func transitionState(event: Event) -> Self
-    func transitionState(keyboardState: SystemKeyboardEvent) -> Self
-//    func isEqual(_ other: Self) -> Bool
+    func transitionState(_ keyboardState: SystemKeyboardEvent) -> Self
 }
 
 enum SystemKeyboardEvent {
-    case willShow(params: KeyboardParameters)
-    case willHide(params: KeyboardParameters)
+    case willShow(_ params: KeyboardParameters? = nil)
+    case willHide(_ params: KeyboardParameters? = nil)
 }
 
 struct KeyboardParameters {

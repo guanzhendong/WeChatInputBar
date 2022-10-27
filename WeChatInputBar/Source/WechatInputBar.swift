@@ -18,14 +18,14 @@ class WechatInputBar: InputBarAccessoryView {
     
     var bottomCon: NSLayoutConstraint?
     
-    var state: WechatInputBarState = .initial(params: nil) {
+    var state: WechatInputBarState = .initial {
         didSet {
             changeBar()
             aDelegate?.onStateChanged(self)
         }
     }
     
-    var voiceButton: InputBarSendButton = {
+    private let voiceButton: InputBarSendButton = {
         let btn =  InputBarSendButton()
         btn.image = UIImage(named: "voice")
         btn.setSize(CGSize(width: 40, height: 40), animated: false)
@@ -33,7 +33,7 @@ class WechatInputBar: InputBarAccessoryView {
         return btn
     }()
     
-    var emojiButton: InputBarSendButton = {
+    private let emojiButton: InputBarSendButton = {
         let btn =  InputBarSendButton()
         btn.image = UIImage(named: "emoji")
         btn.setSize(CGSize(width: 40, height: 40), animated: false)
@@ -41,7 +41,7 @@ class WechatInputBar: InputBarAccessoryView {
         return btn
     }()
     
-    var plusButton: InputBarSendButton = {
+    private let plusButton: InputBarSendButton = {
         let btn =  InputBarSendButton()
         btn.image = UIImage(named: "plus")
         btn.setSize(CGSize(width: 40, height: 40), animated: false)
@@ -96,12 +96,12 @@ class WechatInputBar: InputBarAccessoryView {
         
         keyboardManager2.on(event: .willShow) { [weak self] _ in
             guard let self = self else { return }
-            self.state = self.state.transitionState(keyboardState: .willShow(params: KeyboardParameters(height: 0)))
+            self.state = self.state.transitionState(.willShow())
         }
         
         keyboardManager2.on(event: .willHide) { [weak self] _ in
             guard let self = self else { return }
-            self.state = self.state.transitionState(keyboardState: .willHide(params: KeyboardParameters(height: 0)))
+            self.state = self.state.transitionState(.willHide())
         }
     }
     
@@ -149,58 +149,49 @@ class WechatInputBar: InputBarAccessoryView {
     func changeBar() {
         guard let superview = superview else { return }
         
+        // 是否展示键盘
+        if state.showKeyboard {
+            if inputTextView.canBecomeFirstResponder {
+                inputTextView.becomeFirstResponder()
+            }
+        } else {
+            inputTextView.resignFirstResponder()
+        }
+        
+        // 切换 左右按钮的图标
+        voiceButton.image = state.leftEventList.first?.image
+        emojiButton.image = state.rightEventList.first?.image
+        plusButton.image = state.rightEventList.last?.image
+        
+        // 切换 附加视图的显示与否
+        audioBoard.isHidden = state != .audio
+        emojiBoard.isHidden = state != .emoji
+        plusBoard.isHidden = state != .plus
+        
         switch state {
         case .initial:
-            voiceButton.image = UIImage(named: "voice")
-            emojiButton.image = UIImage(named: "emoji")
-            
-            inputTextView.resignFirstResponder()
-            audioBoard.isHidden = true
-            emojiBoard.isHidden = true
-            plusBoard.isHidden = true
             UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) {
                 self.bottomCon?.constant = 0
                 superview.layoutIfNeeded()
             }
-
+            
         case .input:
-            voiceButton.image = UIImage(named: "voice")
-            emojiButton.image = UIImage(named: "emoji")
-            audioBoard.isHidden = true
-            emojiBoard.isHidden = true
-            plusBoard.isHidden = true
-            if inputTextView.canBecomeFirstResponder {
-                inputTextView.becomeFirstResponder()
-            }
+            break
             
         case .audio:
-            voiceButton.image = UIImage(named: "keyboard")
-            emojiButton.image = UIImage(named: "emoji")
-            
-            inputTextView.resignFirstResponder()
             if audioBoard.superview == nil {
                 inputTextView.addSubview(audioBoard)
                 audioBoard.frame = inputTextView.bounds
             }
-            audioBoard.isHidden = false
-            emojiBoard.isHidden = true
-            plusBoard.isHidden = true
             UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) {
                 self.bottomCon?.constant = 0
                 superview.layoutIfNeeded()
             }
             
         case .emoji:
-            voiceButton.image = UIImage(named: "voice")
-            emojiButton.image = UIImage(named: "keyboard")
-            
-            inputTextView.resignFirstResponder()
             if emojiBoard.superview == nil {
                 superview.addSubview(emojiBoard)
             }
-            audioBoard.isHidden = true
-            emojiBoard.isHidden = false
-            plusBoard.isHidden = true
             emojiBoard.frame = CGRect(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 400)
             UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) {
                 self.emojiBoard.frame = CGRect(x: 0, y: UIScreen.main.bounds.height - 400, width: UIScreen.main.bounds.width, height: 400)
@@ -208,18 +199,10 @@ class WechatInputBar: InputBarAccessoryView {
                 superview.layoutIfNeeded()
             }
             
-            
         case .plus:
-            voiceButton.image = UIImage(named: "voice")
-            emojiButton.image = UIImage(named: "emoji")
-            
-            inputTextView.resignFirstResponder()
             if plusBoard.superview == nil {
                 superview.addSubview(plusBoard)
             }
-            audioBoard.isHidden = true
-            emojiBoard.isHidden = true
-            plusBoard.isHidden = false
             plusBoard.frame = CGRect(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 260)
             UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) {
                 self.plusBoard.frame = CGRect(x: 0, y: UIScreen.main.bounds.height - 260, width: UIScreen.main.bounds.width, height: 260)

@@ -31,13 +31,22 @@ extension WechatButtonEvent: InputBarEvent {
     var image: UIImage? {
         switch self {
         case .clickEmoji:
-            return UIImage(named: "input_state_emoji")
+            return UIImage(named: "emoji")
         case .keyboardTrigger:
-            return UIImage(named: "input_state_keyboard")
+            return UIImage(named: "keyboard")
         case .clickAudio:
-            return UIImage(named: "input_state_audio")
+            return UIImage(named: "voice")
         case .clickPlus:
-            return UIImage(named: "input_state_plus")
+            return UIImage(named: "plus")
+        }
+    }
+    
+    var hideAttach: Bool {
+        switch self {
+        case .keyboardTrigger:
+            return false
+        default:
+            return true
         }
     }
 }
@@ -47,8 +56,8 @@ enum WechatInputBarState: InputBarState {
     typealias Event = WechatButtonEvent
     typealias State = WechatInputBarState
     
-    case initial(params: KeyboardParameters?)
-    case input(params: KeyboardParameters?)
+    case initial
+    case input(_ params: KeyboardParameters? = nil)
     case audio
     case emoji
     case plus
@@ -56,15 +65,11 @@ enum WechatInputBarState: InputBarState {
     var attachNode: UIView {
         switch self {
         case .initial:
-            let view = UIView()
-            return view
+            return UIView()
         case .input:
-            let view = UIView()
-            view.backgroundColor = .green
-            return view
+            return UIView()
         case .audio:
-            let view = AudioBoardView()
-            return view
+            return AudioBoardView()
         case .emoji:
             let view = EmojiBoardView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 400))
             return view
@@ -78,66 +83,53 @@ enum WechatInputBarState: InputBarState {
     var attachNodeHeight: CGFloat {
         switch self {
         case .initial:
-            return attachNode.saferAreaInsets.bottom
-        case .input(let params):
-            if let height = params?.height {
-                return height
-            }
-            return attachNode.saferAreaInsets.bottom
+            return 0
+        case .input:
+            return 0
         case .audio:
-            return attachNode.saferAreaInsets.bottom
+            return 50
         case .emoji:
-            return 300
+            return 400
         case .plus:
-            return 300
+            return 260
         }
     }
     
     var leftEventList: [Event] {
         switch self {
-        case .input, .initial, .plus:
-            return [.clickAudio]
         case .audio:
             return [.keyboardTrigger]
-        case .emoji:
+        default:
             return [.clickAudio]
         }
     }
     
-    var rightEventList: [WechatButtonEvent] {
+    var rightEventList: [Event] {
         switch self {
-        case .input, .initial:
-            return [WechatButtonEvent.clickEmoji, WechatButtonEvent.clickPlus]
-        case .audio:
-            return [WechatButtonEvent.clickEmoji, WechatButtonEvent.clickPlus]
         case .emoji:
-            return [WechatButtonEvent.keyboardTrigger, WechatButtonEvent.clickPlus]
+            return [.keyboardTrigger, .clickPlus]
         case .plus:
-            return [WechatButtonEvent.clickEmoji, .keyboardTrigger]
+            return [.clickEmoji, .clickPlus]
+        default:
+            return [.clickEmoji, .clickPlus]
         }
     }
     
     var showKeyboard: Bool {
         switch self {
-        case .initial:
-            return false
         case .input:
             return true
-        case .audio:
-            return false
-        case .emoji:
-            return false
-        case .plus:
+        default:
             return false
         }
     }
     
-    func transitionState(event: WechatButtonEvent) -> WechatInputBarState {
+    func transitionState(event: Event) -> State {
         switch event {
         case .clickEmoji:
             return .emoji
         case .keyboardTrigger:
-            return .input(params: nil)
+            return .input()
         case .clickAudio:
             return .audio
         case .clickPlus:
@@ -145,40 +137,37 @@ enum WechatInputBarState: InputBarState {
         }
     }
     
-    func transitionState(keyboardState: SystemKeyboardEvent) -> WechatInputBarState {
+    func transitionState(_ keyboardState: SystemKeyboardEvent) -> State {
         switch keyboardState {
         case .willShow(let params):
-            return .input(params: params)
-        case .willHide(let params):
+            return .input(params)
+        case .willHide:
             switch self {
-            case .initial:
-                return .initial(params: nil)
             case .input:
-                return .initial(params: params)
-            case .audio:
-                return .audio
-            case .emoji:
-                return .emoji
-            case .plus:
-                return .plus
+                return .initial
+            default:
+                return self
             }
         }
     }
+}
+
+extension WechatInputBarState: Equatable {
     
-//    func isEqual(_ other: WechatInputBarState) -> Bool {
-//        switch (self, other) {
-//        case (.initial(let param1), .initial(let param2)):
-//            return param1?.height == param2?.height && param1?.duration == param2?.duration && param1?.curve == param2?.curve
-//        case (.input(let param1), .input(let param2)):
-//            return param1?.height == param2?.height && param1?.duration == param2?.duration && param1?.curve == param2?.curve
-//        case (.audio, .audio):
-//            return true
-//        case (.emoji, .emoji):
-//            return true
-//        case (.plus, .plus):
-//            return true
-//        default:
-//            return false
-//        }
-//    }
+    static func == (lhs: WechatInputBarState, rhs: WechatInputBarState) -> Bool {
+        switch (lhs, rhs) {
+        case (.initial, .initial):
+            return true
+        case (.input, .input):
+            return true
+        case (.audio, .audio):
+            return true
+        case (.emoji, .emoji):
+            return true
+        case (.plus, .plus):
+            return true
+        default:
+            return false
+        }
+    }
 }
