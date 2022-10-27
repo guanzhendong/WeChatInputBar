@@ -1,0 +1,547 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		29659D93287EB764007599FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29659D92287EB764007599FC /* AppDelegate.swift */; };
+		29659D97287EB764007599FC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29659D96287EB764007599FC /* ViewController.swift */; };
+		29659D9A287EB764007599FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29659D98287EB764007599FC /* Main.storyboard */; };
+		29659D9C287EB768007599FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29659D9B287EB768007599FC /* Assets.xcassets */; };
+		29659D9F287EB768007599FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29659D9D287EB768007599FC /* LaunchScreen.storyboard */; };
+		29659DC8287EB7A4007599FC /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29659DA9287EB7A4007599FC /* KeyboardManager.swift */; };
+		29659DC9287EB7A4007599FC /* KeyboardNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29659DAA287EB7A4007599FC /* KeyboardNotification.swift */; };
+		29659DCA287EB7A4007599FC /* KeyboardEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29659DAB287EB7A4007599FC /* KeyboardEvent.swift */; };
+		29659DCB287EB7A4007599FC /* HorizontalEdgePadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29659DAD287EB7A4007599FC /* HorizontalEdgePadding.swift */; };
+		29659DCC287EB7A4007599FC /* NSConstraintLayoutSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29659DAE287EB7A4007599FC /* NSConstraintLayoutSet.swift */; };
+		29659DCD287EB7A4007599FC /* NSNotification+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29659DB0287EB7A4007599FC /* NSNotification+Extensions.swift */; };
+		29659DCE287EB7A4007599FC /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29659DB1287EB7A4007599FC /* String+Extensions.swift */; };
+		29659DCF287EB7A4007599FC /* InputBarAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29659DB2287EB7A4007599FC /* InputBarAccessoryView.swift */; };
+		29659DD0287EB7A4007599FC /* InputBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29659DB4287EB7A4007599FC /* InputBarButtonItem.swift */; };
+		29659DD1287EB7A4007599FC /* InputBarSendButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29659DB5287EB7A4007599FC /* InputBarSendButton.swift */; };
+		29659DD2287EB7A4007599FC /* InputStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29659DB7287EB7A4007599FC /* InputStackView.swift */; };
+		29659DD3287EB7A4007599FC /* InputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29659DB8287EB7A4007599FC /* InputTextView.swift */; };
+		29659DD4287EB7A5007599FC /* SeparatorLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29659DB9287EB7A4007599FC /* SeparatorLine.swift */; };
+		29659DD5287EB7A5007599FC /* InputPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29659DBB287EB7A4007599FC /* InputPlugin.swift */; };
+		29659DD6287EB7A5007599FC /* InputBarAccessoryViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29659DBC287EB7A4007599FC /* InputBarAccessoryViewDelegate.swift */; };
+		29659DD7287EB7A5007599FC /* InputItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29659DBD287EB7A4007599FC /* InputItem.swift */; };
+		29659DD8287EB7A5007599FC /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29659DBF287EB7A4007599FC /* UIColor+Extension.swift */; };
+		29659DD9287EB7A5007599FC /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29659DC0287EB7A4007599FC /* UIView+Extension.swift */; };
+		29659DDA287EB7A5007599FC /* AudioBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29659DC1287EB7A4007599FC /* AudioBoardView.swift */; };
+		29659DDB287EB7A5007599FC /* PlusBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29659DC2287EB7A4007599FC /* PlusBoardView.swift */; };
+		29659DDC287EB7A5007599FC /* EmojiBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29659DC3287EB7A4007599FC /* EmojiBoardView.swift */; };
+		29659DDD287EB7A5007599FC /* WechatInputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29659DC4287EB7A4007599FC /* WechatInputBar.swift */; };
+		29659DDE287EB7A5007599FC /* WechatInputBarState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29659DC6287EB7A4007599FC /* WechatInputBarState.swift */; };
+		29659DDF287EB7A5007599FC /* InputBarState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29659DC7287EB7A4007599FC /* InputBarState.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		29659D8F287EB764007599FC /* WeChatInputBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeChatInputBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		29659D92287EB764007599FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		29659D96287EB764007599FC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		29659D99287EB764007599FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		29659D9B287EB768007599FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		29659D9E287EB768007599FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		29659DA0287EB768007599FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		29659DA9287EB7A4007599FC /* KeyboardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
+		29659DAA287EB7A4007599FC /* KeyboardNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardNotification.swift; sourceTree = "<group>"; };
+		29659DAB287EB7A4007599FC /* KeyboardEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardEvent.swift; sourceTree = "<group>"; };
+		29659DAD287EB7A4007599FC /* HorizontalEdgePadding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalEdgePadding.swift; sourceTree = "<group>"; };
+		29659DAE287EB7A4007599FC /* NSConstraintLayoutSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSConstraintLayoutSet.swift; sourceTree = "<group>"; };
+		29659DB0287EB7A4007599FC /* NSNotification+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSNotification+Extensions.swift"; sourceTree = "<group>"; };
+		29659DB1287EB7A4007599FC /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		29659DB2287EB7A4007599FC /* InputBarAccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputBarAccessoryView.swift; sourceTree = "<group>"; };
+		29659DB4287EB7A4007599FC /* InputBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputBarButtonItem.swift; sourceTree = "<group>"; };
+		29659DB5287EB7A4007599FC /* InputBarSendButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputBarSendButton.swift; sourceTree = "<group>"; };
+		29659DB7287EB7A4007599FC /* InputStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputStackView.swift; sourceTree = "<group>"; };
+		29659DB8287EB7A4007599FC /* InputTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputTextView.swift; sourceTree = "<group>"; };
+		29659DB9287EB7A4007599FC /* SeparatorLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeparatorLine.swift; sourceTree = "<group>"; };
+		29659DBB287EB7A4007599FC /* InputPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputPlugin.swift; sourceTree = "<group>"; };
+		29659DBC287EB7A4007599FC /* InputBarAccessoryViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputBarAccessoryViewDelegate.swift; sourceTree = "<group>"; };
+		29659DBD287EB7A4007599FC /* InputItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputItem.swift; sourceTree = "<group>"; };
+		29659DBF287EB7A4007599FC /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		29659DC0287EB7A4007599FC /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		29659DC1287EB7A4007599FC /* AudioBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioBoardView.swift; sourceTree = "<group>"; };
+		29659DC2287EB7A4007599FC /* PlusBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlusBoardView.swift; sourceTree = "<group>"; };
+		29659DC3287EB7A4007599FC /* EmojiBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiBoardView.swift; sourceTree = "<group>"; };
+		29659DC4287EB7A4007599FC /* WechatInputBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WechatInputBar.swift; sourceTree = "<group>"; };
+		29659DC6287EB7A4007599FC /* WechatInputBarState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WechatInputBarState.swift; sourceTree = "<group>"; };
+		29659DC7287EB7A4007599FC /* InputBarState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputBarState.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		29659D8C287EB764007599FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		29659D86287EB764007599FC = {
+			isa = PBXGroup;
+			children = (
+				29659D91287EB764007599FC /* WeChatInputBar */,
+				29659D90287EB764007599FC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		29659D90287EB764007599FC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				29659D8F287EB764007599FC /* WeChatInputBar.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29659D91287EB764007599FC /* WeChatInputBar */ = {
+			isa = PBXGroup;
+			children = (
+				29659DA6287EB785007599FC /* Source */,
+				29659D92287EB764007599FC /* AppDelegate.swift */,
+				29659D96287EB764007599FC /* ViewController.swift */,
+				29659D98287EB764007599FC /* Main.storyboard */,
+				29659D9B287EB768007599FC /* Assets.xcassets */,
+				29659D9D287EB768007599FC /* LaunchScreen.storyboard */,
+				29659DA0287EB768007599FC /* Info.plist */,
+			);
+			path = WeChatInputBar;
+			sourceTree = "<group>";
+		};
+		29659DA6287EB785007599FC /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				29659DC4287EB7A4007599FC /* WechatInputBar.swift */,
+				29659DC5287EB7A4007599FC /* State */,
+				29659DBE287EB7A4007599FC /* View */,
+				29659DE2287EBB0B007599FC /* Extension */,
+				29659DA7287EB7A4007599FC /* InputBarAccessoryView */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		29659DA7287EB7A4007599FC /* InputBarAccessoryView */ = {
+			isa = PBXGroup;
+			children = (
+				29659DA8287EB7A4007599FC /* KeyboardManager */,
+				29659DAC287EB7A4007599FC /* Models */,
+				29659DAF287EB7A4007599FC /* Extensions */,
+				29659DB2287EB7A4007599FC /* InputBarAccessoryView.swift */,
+				29659DB3287EB7A4007599FC /* Controls */,
+				29659DB6287EB7A4007599FC /* Views */,
+				29659DBA287EB7A4007599FC /* Protocols */,
+			);
+			path = InputBarAccessoryView;
+			sourceTree = "<group>";
+		};
+		29659DA8287EB7A4007599FC /* KeyboardManager */ = {
+			isa = PBXGroup;
+			children = (
+				29659DA9287EB7A4007599FC /* KeyboardManager.swift */,
+				29659DAA287EB7A4007599FC /* KeyboardNotification.swift */,
+				29659DAB287EB7A4007599FC /* KeyboardEvent.swift */,
+			);
+			path = KeyboardManager;
+			sourceTree = "<group>";
+		};
+		29659DAC287EB7A4007599FC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				29659DAD287EB7A4007599FC /* HorizontalEdgePadding.swift */,
+				29659DAE287EB7A4007599FC /* NSConstraintLayoutSet.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		29659DAF287EB7A4007599FC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				29659DB0287EB7A4007599FC /* NSNotification+Extensions.swift */,
+				29659DB1287EB7A4007599FC /* String+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		29659DB3287EB7A4007599FC /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				29659DB4287EB7A4007599FC /* InputBarButtonItem.swift */,
+				29659DB5287EB7A4007599FC /* InputBarSendButton.swift */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
+		29659DB6287EB7A4007599FC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				29659DB7287EB7A4007599FC /* InputStackView.swift */,
+				29659DB8287EB7A4007599FC /* InputTextView.swift */,
+				29659DB9287EB7A4007599FC /* SeparatorLine.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		29659DBA287EB7A4007599FC /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				29659DBB287EB7A4007599FC /* InputPlugin.swift */,
+				29659DBC287EB7A4007599FC /* InputBarAccessoryViewDelegate.swift */,
+				29659DBD287EB7A4007599FC /* InputItem.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		29659DBE287EB7A4007599FC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				29659DC1287EB7A4007599FC /* AudioBoardView.swift */,
+				29659DC2287EB7A4007599FC /* PlusBoardView.swift */,
+				29659DC3287EB7A4007599FC /* EmojiBoardView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		29659DC5287EB7A4007599FC /* State */ = {
+			isa = PBXGroup;
+			children = (
+				29659DC6287EB7A4007599FC /* WechatInputBarState.swift */,
+				29659DC7287EB7A4007599FC /* InputBarState.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		29659DE2287EBB0B007599FC /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				29659DBF287EB7A4007599FC /* UIColor+Extension.swift */,
+				29659DC0287EB7A4007599FC /* UIView+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		29659D8E287EB764007599FC /* WeChatInputBar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 29659DA3287EB768007599FC /* Build configuration list for PBXNativeTarget "WeChatInputBar" */;
+			buildPhases = (
+				29659D8B287EB764007599FC /* Sources */,
+				29659D8C287EB764007599FC /* Frameworks */,
+				29659D8D287EB764007599FC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WeChatInputBar;
+			productName = WeChatInputBar;
+			productReference = 29659D8F287EB764007599FC /* WeChatInputBar.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29659D87287EB764007599FC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1310;
+				LastUpgradeCheck = 1310;
+				TargetAttributes = {
+					29659D8E287EB764007599FC = {
+						CreatedOnToolsVersion = 13.1;
+					};
+				};
+			};
+			buildConfigurationList = 29659D8A287EB764007599FC /* Build configuration list for PBXProject "WeChatInputBar" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 29659D86287EB764007599FC;
+			productRefGroup = 29659D90287EB764007599FC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				29659D8E287EB764007599FC /* WeChatInputBar */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		29659D8D287EB764007599FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29659D9F287EB768007599FC /* LaunchScreen.storyboard in Resources */,
+				29659D9C287EB768007599FC /* Assets.xcassets in Resources */,
+				29659D9A287EB764007599FC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		29659D8B287EB764007599FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29659DCE287EB7A4007599FC /* String+Extensions.swift in Sources */,
+				29659DD6287EB7A5007599FC /* InputBarAccessoryViewDelegate.swift in Sources */,
+				29659DDF287EB7A5007599FC /* InputBarState.swift in Sources */,
+				29659DC8287EB7A4007599FC /* KeyboardManager.swift in Sources */,
+				29659D97287EB764007599FC /* ViewController.swift in Sources */,
+				29659DD7287EB7A5007599FC /* InputItem.swift in Sources */,
+				29659DDD287EB7A5007599FC /* WechatInputBar.swift in Sources */,
+				29659DCF287EB7A4007599FC /* InputBarAccessoryView.swift in Sources */,
+				29659DC9287EB7A4007599FC /* KeyboardNotification.swift in Sources */,
+				29659DD5287EB7A5007599FC /* InputPlugin.swift in Sources */,
+				29659D93287EB764007599FC /* AppDelegate.swift in Sources */,
+				29659DD3287EB7A4007599FC /* InputTextView.swift in Sources */,
+				29659DD4287EB7A5007599FC /* SeparatorLine.swift in Sources */,
+				29659DD0287EB7A4007599FC /* InputBarButtonItem.swift in Sources */,
+				29659DCA287EB7A4007599FC /* KeyboardEvent.swift in Sources */,
+				29659DDC287EB7A5007599FC /* EmojiBoardView.swift in Sources */,
+				29659DCD287EB7A4007599FC /* NSNotification+Extensions.swift in Sources */,
+				29659DD9287EB7A5007599FC /* UIView+Extension.swift in Sources */,
+				29659DDE287EB7A5007599FC /* WechatInputBarState.swift in Sources */,
+				29659DD2287EB7A4007599FC /* InputStackView.swift in Sources */,
+				29659DCC287EB7A4007599FC /* NSConstraintLayoutSet.swift in Sources */,
+				29659DDA287EB7A5007599FC /* AudioBoardView.swift in Sources */,
+				29659DCB287EB7A4007599FC /* HorizontalEdgePadding.swift in Sources */,
+				29659DD1287EB7A4007599FC /* InputBarSendButton.swift in Sources */,
+				29659DDB287EB7A5007599FC /* PlusBoardView.swift in Sources */,
+				29659DD8287EB7A5007599FC /* UIColor+Extension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		29659D98287EB764007599FC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				29659D99287EB764007599FC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		29659D9D287EB768007599FC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				29659D9E287EB768007599FC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		29659DA1287EB768007599FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		29659DA2287EB768007599FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		29659DA4287EB768007599FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PW9DMGQS3C;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WeChatInputBar/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gzd.WeChatInputBar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		29659DA5287EB768007599FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PW9DMGQS3C;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WeChatInputBar/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gzd.WeChatInputBar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		29659D8A287EB764007599FC /* Build configuration list for PBXProject "WeChatInputBar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				29659DA1287EB768007599FC /* Debug */,
+				29659DA2287EB768007599FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		29659DA3287EB768007599FC /* Build configuration list for PBXNativeTarget "WeChatInputBar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				29659DA4287EB768007599FC /* Debug */,
+				29659DA5287EB768007599FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29659D87287EB764007599FC /* Project object */;
+}
