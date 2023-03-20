@@ -40,15 +40,6 @@ extension WechatButtonEvent: InputBarEvent {
             return UIImage(named: "plus")
         }
     }
-    
-    var hideAttach: Bool {
-        switch self {
-        case .keyboardTrigger:
-            return false
-        default:
-            return true
-        }
-    }
 }
 
 enum WechatInputBarState: InputBarState {
@@ -82,16 +73,12 @@ enum WechatInputBarState: InputBarState {
     
     var attachNodeHeight: CGFloat {
         switch self {
-        case .initial:
-            return 0
-        case .input:
-            return 0
-        case .audio:
-            return 50
         case .emoji:
             return 400
         case .plus:
             return 260
+        default:
+            return 0
         }
     }
     
