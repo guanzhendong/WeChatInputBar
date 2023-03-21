@@ -9,6 +9,9 @@ import UIKit
 
 class EmojiBoardView: UIView {
     
+    private let charData = ["a", "b", "c", "d", "e", "f", "g", "h", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u"]
+    private var currentPage = 0
+    
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -27,6 +30,7 @@ class EmojiBoardView: UIView {
     private lazy var scrollView: UIScrollView = {
         let view = UIScrollView()
         view.isPagingEnabled = true
+        view.delegate = self
         return view
     }()
 
@@ -74,13 +78,13 @@ class EmojiBoardView: UIView {
 extension EmojiBoardView: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        collectionView == self.collectionView ? 20 : 40
+        collectionView == self.collectionView ? charData.count : 40
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.collectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ID", for: indexPath) as! CollectionCell
-            cell.titleLabel.text = "\(indexPath.row)"
+            cell.titleLabel.text = charData[indexPath.row].uppercased()
             cell.titleLabel.font = .systemFont(ofSize: 14)
             return cell
         } else {
@@ -89,5 +93,31 @@ extension EmojiBoardView: UICollectionViewDelegate, UICollectionViewDataSource {
             cell.titleLabel.font = .systemFont(ofSize: 24)
             return cell
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let index = indexPath.item
+        scrollView.setContentOffset(CGPoint(x: index * Int(scrollView.bounds.width), y: 0), animated: true)
+    }
+}
+
+extension EmojiBoardView: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard scrollView == self.scrollView else {
+            return
+        }
+        
+        let index = scrollView.contentOffset.x / scrollView.bounds.width
+        let page = Int(index.rounded())
+        
+        if let cell = collectionView.cellForItem(at: IndexPath(item: currentPage, section: 0)) {
+            cell.contentView.backgroundColor = .init(white: 0, alpha: 0.1)
+        }
+        if let cell = collectionView.cellForItem(at: IndexPath(item: page, section: 0)) {
+            cell.contentView.backgroundColor = .red
+            collectionView.scrollToItem(at: IndexPath(item: page, section: 0), at: .centeredHorizontally, animated: true)
+        }
+        currentPage = page
     }
 }
