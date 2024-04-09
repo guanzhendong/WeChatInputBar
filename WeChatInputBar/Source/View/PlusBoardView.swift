@@ -29,6 +29,7 @@ class PlusBoardView: UIView {
         pc.currentPage = 0
         pc.pageIndicatorTintColor = .groupTableViewBackground
         pc.currentPageIndicatorTintColor = .darkGray
+        pc.addTarget(self, action: #selector(pageControlValueChanged), for: .valueChanged)
         return pc
     }()
     
@@ -45,6 +46,11 @@ class PlusBoardView: UIView {
         addSubview(pageControl)
         pageControl.centerX(inView: self, topAnchor: collectionView.bottomAnchor, paddingTop: 0)
 
+    }
+    
+    @objc func pageControlValueChanged() {
+        let index = pageControl.currentPage
+        collectionView.setContentOffset(CGPoint(x: index * Int(collectionView.bounds.width), y: 0), animated: true)
     }
     
     required init?(coder: NSCoder) {
