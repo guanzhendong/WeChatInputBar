@@ -25,7 +25,7 @@ class WechatInputBar: InputBarAccessoryView {
         }
     }
     
-    private let voiceButton: InputBarSendButton = {
+    private lazy var voiceButton: InputBarSendButton = {
         let btn =  InputBarSendButton()
         btn.image = UIImage(named: "voice")
         btn.setSize(CGSize(width: 40, height: 40), animated: false)
@@ -33,7 +33,7 @@ class WechatInputBar: InputBarAccessoryView {
         return btn
     }()
     
-    private let emojiButton: InputBarSendButton = {
+    private lazy var emojiButton: InputBarSendButton = {
         let btn =  InputBarSendButton()
         btn.image = UIImage(named: "emoji")
         btn.setSize(CGSize(width: 40, height: 40), animated: false)
@@ -41,7 +41,7 @@ class WechatInputBar: InputBarAccessoryView {
         return btn
     }()
     
-    private let plusButton: InputBarSendButton = {
+    private lazy var plusButton: InputBarSendButton = {
         let btn =  InputBarSendButton()
         btn.image = UIImage(named: "plus")
         btn.setSize(CGSize(width: 40, height: 40), animated: false)
