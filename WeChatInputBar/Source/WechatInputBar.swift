@@ -69,16 +69,16 @@ class WechatInputBar: InputBarAccessoryView {
         }
     }
     
-    var audioBoard: AudioBoardView = {
+    lazy var audioBoard: AudioBoardView = {
         let v = AudioBoardView()
         return v
     }()
-    var emojiBoard: EmojiBoardView = {
+    lazy var emojiBoard: EmojiBoardView = {
         let v = EmojiBoardView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 400))
         return v
     }()
-    var plusBoard: PlusBoardView = {
-        let v = PlusBoardView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 260))
+    lazy var plusBoard: PlusBoardView = {
+        let v = PlusBoardView()
         return v
     }()
     
@@ -202,10 +202,10 @@ class WechatInputBar: InputBarAccessoryView {
             if emojiBoard.superview == nil {
                 superview.addSubview(emojiBoard)
             }
-            emojiBoard.frame = CGRect(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 400)
+            emojiBoard.frame = CGRect(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: state.attachHeight)
             UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) {
-                self.emojiBoard.frame = CGRect(x: 0, y: UIScreen.main.bounds.height - 400, width: UIScreen.main.bounds.width, height: 400)
-                self.bottomCon?.constant = -400
+                self.emojiBoard.frame = CGRect(x: 0, y: UIScreen.main.bounds.height - self.state.attachHeight, width: UIScreen.main.bounds.width, height: self.state.attachHeight)
+                self.bottomCon?.constant = -self.state.attachHeight
                 superview.layoutIfNeeded()
             }
             
@@ -213,10 +213,10 @@ class WechatInputBar: InputBarAccessoryView {
             if plusBoard.superview == nil {
                 superview.addSubview(plusBoard)
             }
-            plusBoard.frame = CGRect(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 260)
+            plusBoard.frame = CGRect(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: state.attachHeight)
             UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) {
-                self.plusBoard.frame = CGRect(x: 0, y: UIScreen.main.bounds.height - 260, width: UIScreen.main.bounds.width, height: 260)
-                self.bottomCon?.constant = -260
+                self.plusBoard.frame = CGRect(x: 0, y: UIScreen.main.bounds.height - self.state.attachHeight, width: UIScreen.main.bounds.width, height: self.state.attachHeight)
+                self.bottomCon?.constant = -self.state.attachHeight
                 superview.layoutIfNeeded()
             }
             
