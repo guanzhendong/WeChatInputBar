@@ -69,9 +69,19 @@ class WechatInputBar: InputBarAccessoryView {
         }
     }
     
-    var audioBoard: UIView = WechatInputBarState.audio.attachNode
-    var emojiBoard: UIView = WechatInputBarState.emoji.attachNode
-    var plusBoard: UIView = WechatInputBarState.plus.attachNode
+    var audioBoard: AudioBoardView = {
+        let v = AudioBoardView()
+        return v
+    }()
+    var emojiBoard: EmojiBoardView = {
+        let v = EmojiBoardView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 400))
+        return v
+    }()
+    var plusBoard: PlusBoardView = {
+        let v = PlusBoardView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 260))
+        return v
+    }()
+    
     private let keyboardManager = KeyboardManager()
     private let keyboardManager2 = KeyboardManager()
     

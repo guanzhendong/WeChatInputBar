@@ -53,34 +53,7 @@ enum WechatInputBarState: InputBarState {
     case emoji
     case plus
     
-    var attachNode: UIView {
-        switch self {
-        case .initial:
-            return UIView()
-        case .input:
-            return UIView()
-        case .audio:
-            return AudioBoardView()
-        case .emoji:
-            let view = EmojiBoardView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 400))
-            return view
-        case .plus:
-            let view = PlusBoardView()
-            view.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 260)
-            return view
-        }
-    }
     
-    var attachNodeHeight: CGFloat {
-        switch self {
-        case .emoji:
-            return 400
-        case .plus:
-            return 260
-        default:
-            return 0
-        }
-    }
     
     var leftEventList: [Event] {
         switch self {
@@ -108,6 +81,17 @@ enum WechatInputBarState: InputBarState {
             return true
         default:
             return false
+        }
+    }
+    
+    var attachHeight: CGFloat {
+        switch self {
+        case .emoji:
+            return 400
+        case .plus:
+            return 260
+        default:
+            return 0
         }
     }
     
