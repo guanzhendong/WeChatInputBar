@@ -2,7 +2,8 @@
 //  Extension.swift
 //  AIRoleService
 //
-//  Created by brownfeng on 2022/3/8.
+//  Created by arthurguan on 2022/3/8.
+//  Copyright © 2022 arthurguan. All rights reserved.
 //
 
 import Foundation

@@ -2,7 +2,8 @@
 //  UIColor.swift
 //  AIRoleService
 //
-//  Created by brownfeng on 2022/3/9.
+//  Created by arthurguan on 2022/3/9.
+//  Copyright © 2022 arthurguan. All rights reserved.
 //
 
 import UIKit
