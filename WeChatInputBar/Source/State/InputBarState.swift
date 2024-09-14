@@ -3,6 +3,7 @@
 //  WechatInputBar
 //
 //  Created by arthurguan on 2022/7/5.
+//  Copyright © 2022 arthurguan. All rights reserved.
 //
 
 import Foundation
@@ -15,13 +16,14 @@ protocol InputBarEvent {
 }
 
 protocol InputBarState {
+    
     associatedtype Event: InputBarEvent
     associatedtype State: InputBarState
-    var attachNode: UIView { get }
-    var attachNodeHeight: CGFloat { get }
+
     var leftEventList: [Event] { get }
     var rightEventList: [Event] { get }
     var showKeyboard: Bool { get }
+    var attachHeight: CGFloat { get }
     
     func transitionState(event: Event) -> Self
     func transitionState(_ keyboardState: SystemKeyboardEvent) -> Self

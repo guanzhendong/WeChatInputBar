@@ -3,6 +3,7 @@
 //  WechatInputBar
 //
 //  Created by arthurguan on 2022/7/11.
+//  Copyright © 2022 arthurguan. All rights reserved.
 //
 
 import UIKit
