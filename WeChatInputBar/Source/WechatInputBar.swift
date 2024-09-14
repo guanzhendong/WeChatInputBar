@@ -91,7 +91,9 @@ class WechatInputBar: InputBarAccessoryView {
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         
-        setupKeyboardManager()
+        if superview != nil {
+            setupKeyboardManager()
+        }
     }
     
     
