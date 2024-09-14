@@ -16,6 +16,7 @@ protocol InputBarEvent {
 }
 
 protocol InputBarState {
+    
     associatedtype Event: InputBarEvent
     associatedtype State: InputBarState
 

@@ -17,6 +17,7 @@ enum WechatButtonEvent {
 }
 
 extension WechatButtonEvent: InputBarEvent {
+    
     var id: String {
         switch self {
         case .clickEmoji:
@@ -29,6 +30,7 @@ extension WechatButtonEvent: InputBarEvent {
             return "plus"
         }
     }
+    
     var image: UIImage? {
         switch self {
         case .clickEmoji:
