@@ -13,6 +13,8 @@ class AudioBoardView: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        backgroundColor = .white
+        
         setTitle("按住 说话", for: .normal)
         setTitle("松开 结束", for: .highlighted)
         setTitleColor(.black, for: .normal)
@@ -25,7 +27,7 @@ class AudioBoardView: UIButton {
     
     override var isHighlighted: Bool {
         didSet {
-            backgroundColor = isHighlighted ? .init(white: 0, alpha: 0.1) : .white
+            backgroundColor = isHighlighted ? .init(white: 0.9, alpha: 1) : .white
         }
     }
 }
