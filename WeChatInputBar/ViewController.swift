@@ -54,7 +54,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        inputBar.state = .initial
+        if inputBar.state != .audio {
+            inputBar.state = .initial
+        }
     }
 }
 
