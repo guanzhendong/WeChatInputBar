@@ -160,16 +160,10 @@ class WechatInputBar: InputBarAccessoryView {
         switch sender {
         case voiceButton:
             state = state.transitionState(event: sender.isSelected ? .clickAudio : .keyboardTrigger)
-            emojiButton.isSelected = false
-            plusButton.isSelected = false
         case emojiButton:
             state = state.transitionState(event: sender.isSelected ? .clickEmoji : .keyboardTrigger)
-            voiceButton.isSelected = false
-            plusButton.isSelected = false
         case plusButton:
             state = state.transitionState(event: sender.isSelected ? .clickPlus : .keyboardTrigger)
-            voiceButton.isSelected = false
-            emojiButton.isSelected = false
         default:
             break
         }
@@ -191,6 +185,11 @@ class WechatInputBar: InputBarAccessoryView {
         voiceButton.image = state.leftEventList.first?.image
         emojiButton.image = state.rightEventList.first?.image
         plusButton.image = state.rightEventList.last?.image
+        
+        // 切换 左右按钮的选择与否
+        voiceButton.isSelected = state == .audio
+        emojiButton.isSelected = state == .emoji
+        plusButton.isSelected = state == .plus
         
         // 切换 附加视图的显示与否
         audioBoard.isHidden = state != .audio
