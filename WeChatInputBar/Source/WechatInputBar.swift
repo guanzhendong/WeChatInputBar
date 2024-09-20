@@ -22,6 +22,9 @@ class WechatInputBar: InputBarAccessoryView {
     
     public var state: WechatInputBarState = .initial {
         didSet {
+            if oldValue == state {
+                return
+            }
             changeBar()
             aDelegate?.onStateChanged(self)
         }
