@@ -199,6 +199,8 @@ class WechatInputBar: InputBarAccessoryView {
         emojiBoard.isHidden = state != .emoji
         plusBoard.isHidden = state != .plus
         
+        changeTextViewHeightOnAudio()
+        
         switch state {
         case .initial:
             UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) {
@@ -212,7 +214,7 @@ class WechatInputBar: InputBarAccessoryView {
         case .audio:
             if audioBoard.superview == nil {
                 inputTextView.addSubview(audioBoard)
-                audioBoard.frame = inputTextView.bounds
+                audioBoard.frame = CGRect(x: 0, y: 0, width: inputTextView.bounds.width, height: 43)
             }
             UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) {
                 self.bottomConstraint?.constant = 0
@@ -241,6 +243,18 @@ class WechatInputBar: InputBarAccessoryView {
                 superview.layoutIfNeeded()
             }
             
+        }
+    }
+    
+    private func changeTextViewHeightOnAudio() {
+        if state == .audio {
+            maxTextViewHeight = 43
+            shouldAutoUpdateMaxTextViewHeight = false
+            setShouldForceMaxTextViewHeight(to: true, animated: true)
+        } else if maxTextViewHeight != 100 {
+            maxTextViewHeight = 100
+            shouldAutoUpdateMaxTextViewHeight = !isOverMaxTextViewHeight
+            setShouldForceMaxTextViewHeight(to: isOverMaxTextViewHeight, animated: true)
         }
     }
 }
